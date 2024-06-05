@@ -1,0 +1,6 @@
+{
+    "awsS3Url": "https://s3.amazonaws.com/lngp-aws/",
+    "awsEC2Url": "http://ec2-54-191-1-1.us-west-2.compute.amazonaws.com/",
+    "awsRDSUrl": "http://your-rds-endpoint.rds.amazonaws.com/",
+    "awsLambdaUrl": "https://your-api-id.execute-api.us-west-2.amazonaws.com/your-stage/"
+}
