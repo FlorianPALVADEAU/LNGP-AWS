@@ -1,3 +1,5 @@
+#!/bin/bash
+
 sudo docker-compose up -d --build --force-recreate --remove-orphans
 echo 'Docker build'
 while ! sudo docker-compose ps | grep "qlowerBackend" | grep -q "Up"; do
