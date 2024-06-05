@@ -27,6 +27,7 @@ function App() {
       <h1>Todo List</h1>
       <TodoForm addTodo={addTodo} />
       <div className="todo-list">
+        {todos.length === 0 && <p>No todos yet!</p>}
         {todos.map((todo, index) => (
           <Todo
             key={index}
