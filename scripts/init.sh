@@ -9,5 +9,3 @@ sudo docker image prune -f
 
 echo 'sudo docker ps'
 sudo docker ps
-
-sudo systemctl start nginx
