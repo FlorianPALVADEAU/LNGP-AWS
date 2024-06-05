@@ -33,10 +33,10 @@ function App() {
               Keep it up
             </Text>
           </div>
-          <div className='bg-blue-500 rounded-full aspect-square flex items-center justify-center w-24'>
-            <Text as='p' className='text-white'>
-              {todos.filter((todo) => todo.isCompleted).length} / {todos.length}{' '}
-            </Text>
+          <div className='bg-blue-500 rounded-full aspect-square flex items-center justify-center w-24 text-white text-2xl gap-1'>
+            <p className='font-semibold'>{todos.filter((todo) => todo.isCompleted).length}</p>
+            <p>/</p>
+            <p>{todos.length} </p>
           </div>
         </div>
         <TodoForm addTodo={addTodo} />

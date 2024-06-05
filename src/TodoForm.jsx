@@ -21,7 +21,7 @@ function TodoForm({ addTodo }) {
   };
 
   return (
-    <form onSubmit={handleSubmit} className='flex justify-center gap-2 px-4 w-full' name='form'>
+    <form onSubmit={handleSubmit} className='flex justify-center gap-2 w-full' name='form'>
       <TextField.Root
         className='w-full'
         value={value}
