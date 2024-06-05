@@ -6,7 +6,7 @@ function App() {
   const [todos, setTodos] = useState([]);
 
   const addTodo = (text) => {
-    const newTodos = [...todos, { text, isCompleted: false }];
+    const newTodos = [...todos, { ...text, isCompleted: false }];
     setTodos(newTodos);
   };
 

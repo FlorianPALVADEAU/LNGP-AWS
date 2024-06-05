@@ -19,15 +19,18 @@ function TodoForm({ addTodo }) {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="form">
+    <form onSubmit={handleSubmit} className="form" name='form'>
       <input
         type="text"
         className="input"
         value={value}
         onChange={(e) => setValue(e.target.value)}
         placeholder="Add a new task"
+        required
+        name='text'
       />
       <input
+        name='file'
         type="file"
         className="file-input"
         onChange={handleFileChange}

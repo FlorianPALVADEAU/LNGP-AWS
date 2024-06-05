@@ -58,6 +58,22 @@
   background-color: white;
 }
 
+.todo .container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+}
+
+.todo .image {
+  height: 50px;
+  width: 50px;
+  cursor: pointer;
+  background-color: gray;
+}
+
 .form {
   width: 90%;
   display: flex;
