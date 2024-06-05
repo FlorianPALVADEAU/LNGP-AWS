@@ -1,6 +1,7 @@
 version: 0.0
-os: ubuntu
+os: linux
+
 hooks:
   AfterInstall:
-    - location: scripts/init.sh
-      runas: root
+    - location: ./scripts/init.sh
+      runas: ubuntu
