@@ -8,3 +8,8 @@ services:
       dockerfile: Dockerfile
     ports:
       - "8000:80"
+    deploy:
+        resources:
+            limits:
+              cpus: '0.50'
+              memory: 512M
