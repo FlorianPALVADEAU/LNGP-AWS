@@ -6,7 +6,7 @@ git pull origin main
 
 sudo systemctl stop nginx
 
-sudo sudo docker compose up -d --build --force-recreate --remove-orphans
+sudo sudo docker-compose up -d --build --force-recreate --remove-orphans
 echo 'Docker build'
 
 echo 'sudo docker image prune -f'
