@@ -1,11 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Todo from './components/Todo';
 import TodoForm from './components/TodoForm';
 import { Heading, Text } from '@radix-ui/themes';
 import Log from './components/Log';
+import useAwsInteractions from './helpers/useAwsInteractions.hook';
 
 function App() {
   const [todos, setTodos] = useState([]);
+  const { getTodo } = useAwsInteractions();
+
+  useEffect(() => {
+    const fetchData = async () => {
+        const user = await getTodo('1');
+        console.log(user);
+    };
+    fetchData()
+  }, [getTodo]);
 
   const addTodo = (text) => {
     const newTodos = [...todos, { ...text, isCompleted: false }];

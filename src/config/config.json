@@ -1,0 +1,6 @@
+{
+    "awsS3Url": "https://s3.amazonaws.com/lngp-aws/",
+    "awsEC2Url": "http://ec2-54-191-1-1.us-west-2.compute.amazonaws.com/",
+    "awsRDSUrl": "http://db.cd8mkke8arem.us-east-1.rds.amazonaws.com/",
+    "awsLambdaUrl": "https://myqeoktipj.execute-api.us-east-1.amazonaws.com/prod"
+}

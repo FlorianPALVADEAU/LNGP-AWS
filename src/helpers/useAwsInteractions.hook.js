@@ -1,26 +1,46 @@
 import AWS from 'aws-sdk';
-import config from '../../config/config.json';
+import config from '../config/config.json';
+import axios from 'axios';
+
+const axiosClient = axios.create({
+    baseURL: config.awsLambdaUrl,
+    headers: {
+        'Content-Type': 'application/json',
+        'x-api-key': config.awsLambdaApiKey
+    }
+
+});
 
 const useAwsInteractions = () => {
 
     const getUser = async (userId) => {
-        // AWS SDK code to get user
+        try {
+            const user = await axiosClient.get(`${config.awsLambdaUrl}/${userId}`);
+            return user.data;
+        } catch (error) {
+            console.error('Error while retrieving user data:', error);
+            throw error;
+        }
     }
 
-    const logUserIn = async (email, password) => {
-        // AWS SDK code to log user in
+    const getTodo = async (todo) => {
+        try {
+            const user = await axiosClient.get(`${config.awsLambdaUrl}/todos`);
+            return user.data;
+        } catch (error) {
+            console.error('Error while retrieving todo:', error);
+            throw error;
+        }
     }
 
-    const logUserOut = async () => {
-        // AWS SDK code to log user out
-    }
-
-    const addNewTodo = async (todo) => {
-        // AWS SDK code to add new todo
-    }
-
-    const updateTodo = async (todo) => {
-        // AWS SDK code to update todo
+    const postTodo = async (todo) => {
+        try {
+            const user = await axiosClient.post(`${config.awsLambdaUrl}/todos`, todo);
+            return user;
+        } catch (error) {
+            console.error('Error while posting todo:', error);
+            throw error;
+        }    
     }
 
     const getImageFromS3 = async (imageKey) => {
@@ -40,10 +60,8 @@ const useAwsInteractions = () => {
 
     return { 
         getUser,
-        logUserIn,
-        logUserOut,
-        addNewTodo,
-        updateTodo,
+        postTodo,
+        getTodo,
         getImageFromS3
     }
 }
