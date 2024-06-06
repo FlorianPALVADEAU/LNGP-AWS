@@ -34,6 +34,7 @@ function App() {
             <Text as='p' className='text-gray-500'>
               Keep it up, Augustin
             </Text>
+            <h1>Ca marche batard</h1>
           </div>
           <div className='bg-blue-500 rounded-full aspect-square flex items-center justify-center w-24 text-white text-2xl gap-1'>
             <p className='font-semibold'>
