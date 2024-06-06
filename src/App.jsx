@@ -6,16 +6,20 @@ import Log from './components/Log';
 import useAwsInteractions from './helpers/useAwsInteractions.hook';
 
 function App() {
+  const [users, setUsers] = useState(null);
   const [todos, setTodos] = useState([]);
-  const { getTodo } = useAwsInteractions();
+  const { getTodo, getUser } = useAwsInteractions();
 
   useEffect(() => {
     const fetchData = async () => {
-        const user = await getTodo('1');
-        console.log(user);
+        const todo = await getTodo('1');
+        const user = await getUser('1');
+        console.log(user, todo);
+        setTodos(todo);
+        setUsers(user);
     };
     fetchData()
-  }, [getTodo]);
+  }, [getTodo, getUser]);
 
   const addTodo = (text) => {
     const newTodos = [...todos, { ...text, isCompleted: false }];
@@ -42,9 +46,8 @@ function App() {
           <div className='flex flex-col'>
             <Heading size={'6'}>ToDo Done</Heading>
             <Text as='p' className='text-gray-500'>
-              Keep it up, Augustin
+              Keep it up, {users?.name || 'User'}
             </Text>
-            <h1>Ca marche batard</h1>
           </div>
           <div className='bg-blue-500 rounded-full aspect-square flex items-center justify-center w-24 text-white text-2xl gap-1'>
             <p className='font-semibold'>

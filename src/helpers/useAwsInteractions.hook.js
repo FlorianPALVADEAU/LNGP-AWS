@@ -5,9 +5,11 @@ import axios from 'axios';
 const axiosClient = axios.create({
     baseURL: config.awsLambdaUrl,
     headers: {
+        "Access-Control-Allow-Origin": "http://localhost:3000", // Replace with your origin
+        "Access-Control-Allow-Credentials": true,
         'Content-Type': 'application/json',
-        'x-api-key': config.awsLambdaApiKey
-    }
+    },
+    withCredentials: false,
 
 });
 
