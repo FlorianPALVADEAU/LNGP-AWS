@@ -1,7 +1,6 @@
 import React from 'react';
-import './App.css';
-import { Avatar, Text } from '@radix-ui/themes';
 import clsx from 'clsx';
+import { Avatar, Text } from '@radix-ui/themes';
 import { Trash } from './Icons';
 
 export default function Todo({ todo, index, completeTodo, removeTodo }) {

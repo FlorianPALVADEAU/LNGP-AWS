@@ -21,7 +21,11 @@ function TodoForm({ addTodo }) {
   };
 
   return (
-    <form onSubmit={handleSubmit} className='flex justify-center gap-2 w-full' name='form'>
+    <form
+      onSubmit={handleSubmit}
+      className='flex justify-center gap-2 w-full'
+      name='form'
+    >
       <TextField.Root
         className='w-full'
         value={value}
@@ -32,17 +36,25 @@ function TodoForm({ addTodo }) {
       />
       <input
         type='file'
-        className="hidden"
+        className='hidden'
         onChange={handleFileChange}
         accept='.jpg, .jpeg, .png, .gif, .svg, .webp'
         ref={fileInputRef}
         name='file'
       />
       <div className='flex gap-1'>
-        <button onClick={() => fileInputRef.current.click()} className='flex items-center justify-center px-2 whitespace-nowrap bg-blue-500 rounded text-white'>
+        <button
+          onClick={() => fileInputRef.current.click()}
+          className='flex items-center justify-center px-2 whitespace-nowrap bg-blue-500 rounded text-white'
+        >
           <ImagePlug />
         </button>
-        <button type='submit' className='flex items-center justify-center px-2 whitespace-nowrap bg-blue-500 rounded text-white'>New Task</button>
+        <button
+          type='submit'
+          className='flex items-center justify-center px-2 whitespace-nowrap bg-blue-500 rounded text-white'
+        >
+          New Task
+        </button>
       </div>
     </form>
   );
