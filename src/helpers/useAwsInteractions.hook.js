@@ -5,9 +5,9 @@ import axios from 'axios';
 const axiosClient = axios.create({
     baseURL: config.awsLambdaUrl,
     headers: {
-        "Access-Control-Allow-Origin": "http://localhost:3000", // Replace with your origin
+        "Access-Control-Allow-Origin": "*", // Replace with your origin
         "Access-Control-Allow-Credentials": true,
-        'Content-Type': 'application/json',
+        'Content-Type': 'application/x-www-form-urlencoded'
     },
     withCredentials: false,
 

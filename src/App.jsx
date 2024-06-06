@@ -8,18 +8,18 @@ import useAwsInteractions from './helpers/useAwsInteractions.hook';
 function App() {
   const [users, setUsers] = useState(null);
   const [todos, setTodos] = useState([]);
-  const { getTodo, getUser } = useAwsInteractions();
+  const { getUser } = useAwsInteractions();
 
   useEffect(() => {
     const fetchData = async () => {
-        const todo = await getTodo('1');
         const user = await getUser('1');
-        console.log(user, todo);
-        setTodos(todo);
+        console.log(user);
+        setTodos(user.todos);
         setUsers(user);
     };
     fetchData()
-  }, [getTodo, getUser]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const addTodo = (text) => {
     const newTodos = [...todos, { ...text, isCompleted: false }];
@@ -34,8 +34,8 @@ function App() {
 
   const removeTodo = (index) => {
     const newTodos = [...todos];
-    newTodos.splice(index, 1);
-    setTodos(newTodos);
+    const todo = newTodos[index];
+    setTodos(newTodos.filter((t) => t !== todo));
   };
 
   return (
